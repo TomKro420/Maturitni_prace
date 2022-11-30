@@ -197,3 +197,4 @@ public class Sifra {
         encrypt(pt, key);
     }
 }
+//zde
