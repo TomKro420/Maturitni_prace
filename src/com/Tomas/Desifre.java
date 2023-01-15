@@ -3,7 +3,7 @@ package com.Tomas;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class desifre {
+public class Desifre {
     static void decrypt(String encpt, String key) {
         encpt = encpt.toUpperCase();
         key = key.toUpperCase();
