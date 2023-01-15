@@ -1,15 +1,18 @@
 package com.Tomas;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Sifra {
 
     static void encrypt(String pt, String key) {
+        pt = pt.toUpperCase();
+        key = key.toUpperCase();
         char[] text_arr = pt.toCharArray();
         char[] key_arr = key.toCharArray();
         char[] alpha = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
         char[][] table = new char[5][5];
-        char[] encpt_arr = new char[100];
+    char[] encpt_arr = new char[100];
         int encpt_arr_ctr = 0;
         int ctr = -1;
         for (int i = 0; i < key_arr.length; i++)
@@ -93,20 +96,20 @@ public class Sifra {
                 any[c++] = 'X';
                 continue;
             }
-            if (i % 2 == 0 && text_arr[i] != text_arr[i - 1] && text_arr[i] == text_arr[i + 1]) {
+            if (i % 2 == 0 && i > 0 && text_arr[i] != text_arr[i - 1] && text_arr[i] == text_arr[i + 1]) {
                 any[c++] = text_arr[i];
                 any[c++] = 'X';
                 continue;
             }
-            if (i % 2 == 0 && text_arr[i] != text_arr[i - 1] && text_arr[i] != text_arr[i + 1]) {
+            if (i % 2 == 0 &&  i > 0 && text_arr[i] != text_arr[i - 1] && text_arr[i] != text_arr[i + 1]) {
                 any[c++] = text_arr[i];
                 continue;
             }
-            if (i % 2 == 0 && text_arr[i] == text_arr[i - 1] && text_arr[i] != text_arr[i + 1]) {
+            if (i % 2 == 0 &&  i > 0 && text_arr[i] == text_arr[i - 1] && text_arr[i] != text_arr[i + 1]) {
                 any[c++] = text_arr[i];
                 continue;
             }
-            if (i % 2 == 0 && text_arr[i] == text_arr[i - 1] && text_arr[i] == text_arr[i + 1]) {
+            if (i % 2 == 0 &&  i > 0 && text_arr[i] == text_arr[i - 1] && text_arr[i] == text_arr[i + 1]) {
                 any[c++] = text_arr[i];
                 any[c++] = 'X';
                 continue;
